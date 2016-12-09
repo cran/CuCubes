@@ -1,0 +1,11 @@
+CXX_STD = CXX11
+
+PKG_LIBS = $(SHLIB_OPENMP_CFLAGS)
+
+all: $(SHLIB)
+
+avx2mdfs.o: PKG_CXXFLAGS = $(SHLIB_OPENMP_CXXFLAGS) -mavx2 -mfma
+
+avxmdfs.o: PKG_CXXFLAGS = $(SHLIB_OPENMP_CXXFLAGS) -mavx
+
+mdfs_scalar.o: PKG_CXXFLAGS = $(SHLIB_OPENMP_CXXFLAGS)
